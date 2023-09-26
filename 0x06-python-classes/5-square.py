@@ -23,9 +23,9 @@ class Square(object):
         return self.__size ** 2
 
     def my_print(self):
-        n = self.size
+        n = self.__size
         if n == 0:
-            print("")
+            print()
         else:
             for i in range(n):
                 for j in range(n):
