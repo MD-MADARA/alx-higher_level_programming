@@ -2,6 +2,6 @@
 """ Square class """
 
 
-class Square(object):
+class Square:
     """ An empty square class """
     pass
