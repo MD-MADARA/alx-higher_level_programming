@@ -3,9 +3,14 @@
 
 
 class Base:
+    """The “base” of all other classes it manages id attribute
+    in all classes and avoid duplicating the same code
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """ class constructor:
+        """
         if id:
             self.id = id
         else:
