@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Module for Rectangle class """
+""" Module for Rectangle class
+"""
 from base import Base
 
 
@@ -26,7 +27,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """ width attribute getter """
+        """ height attribute getter """
         return self.__height
 
     @height.setter
