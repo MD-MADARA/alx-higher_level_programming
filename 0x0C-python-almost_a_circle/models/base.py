@@ -35,3 +35,9 @@ class Base:
         JSON_string = Base.to_json_string(list_dictionaries)
         with open(file_name, "w") as f:
             f.write(JSON_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
