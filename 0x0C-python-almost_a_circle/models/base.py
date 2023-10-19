@@ -44,6 +44,6 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        dummy = cls(1, 1)
+        dummy = cls(1) if cls.__name__ == "Square" else cls(1, 1)
         dummy.update(**dictionary)
         return dummy
