@@ -28,3 +28,19 @@ class Square(Rectangle):
     def size(self, value):
         """size setter """
         super().update(width=value, height=value)
+
+    def update(self, *args, **kwargs):
+        """Assigns a new argument to each attribute
+        """
+        if len(args) == 0:
+            if "size" in kwargs:
+                self.size = kwargs["size"]
+            super().update(**kwargs)
+        elif len(args) == 1:
+            super().update(args[0])
+        elif len(args) == 2:
+            super().update(args[0], args[1], args[1])
+        elif len(args) == 3:
+            super().update(args[0], args[1], args[1], args[2])
+        elif len(args) == 4:
+            super().update(args[0], args[1], args[1], args[2], args[3])
