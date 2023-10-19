@@ -44,3 +44,8 @@ class Square(Rectangle):
             super().update(args[0], args[1], args[1], args[2])
         elif len(args) == 4:
             super().update(args[0], args[1], args[1], args[2], args[3])
+
+    def to_dictionary(self):
+        """ Return the dict representation of the Rectangle
+        """
+        return {"size": self.size, "id": self.id, "x": self.x, "y": self.y}
