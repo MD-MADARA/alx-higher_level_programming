@@ -18,3 +18,13 @@ class Square(Rectangle):
         string = f"[Square] ({self.id}) {self.x}/{self.y}\
  - {self.height}"
         return string
+
+    @property
+    def size(self):
+        """ size getter """
+        return self.height
+
+    @size.setter
+    def size(self, value):
+        """size setter """
+        super().update(width=value, height=value)
