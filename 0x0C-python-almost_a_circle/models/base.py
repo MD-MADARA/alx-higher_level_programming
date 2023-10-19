@@ -64,4 +64,5 @@ class Base:
                 list_instances.append(cls.create(**dictionary))
 
         except FileNotFoundError:
-            return list_instances
+            pass
+        return list_instances
