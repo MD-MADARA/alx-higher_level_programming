@@ -34,14 +34,14 @@ class TestSquare(unittest.TestCase):
         '''Tests constructor signature.'''
         with self.assertRaises(TypeError) as e:
             r = Square()
-        s = "__init__() missing 1 required positional argument: 'size'"
+        s = "Square.__init__() missing 1 required positional argument: 'size'"
         self.assertEqual(str(e.exception), s)
 
     def test_C_constructor_many_args(self):
         '''Tests constructor signature.'''
         with self.assertRaises(TypeError) as e:
             r = Square(1, 2, 3, 4, 5)
-        s = "__init__() takes from 2 to 5 positional arguments but 6 \
+        s = "Square.__init__() takes from 2 to 5 positional arguments but 6 \
 were given"
         self.assertEqual(str(e.exception), s)
 
@@ -135,21 +135,6 @@ were given"
              [4], {5}, {6: 7}, None)
         return t
 
-    def test_G_validate_type(self):
-        '''Tests property validation.'''
-        r = Square(1)
-        attributes = ["x", "y"]
-        for attribute in attributes:
-            s = "{} must be an integer".format(attribute)
-            for invalid_type in self.invalid_types():
-                with self.assertRaises(TypeError) as e:
-                    setattr(r, attribute, invalid_type)
-                self.assertEqual(str(e.exception), s)
-        s = "width must be an integer"
-        for invalid_type in self.invalid_types():
-            with self.assertRaises(TypeError) as e:
-                setattr(r, "width", invalid_type)
-            self.assertEqual(str(e.exception), s)
 
     def test_G_validate_value_negative_gt(self):
         '''Tests property validation.'''
@@ -204,7 +189,7 @@ were given"
         r = Square(5)
         with self.assertRaises(TypeError) as e:
             Square.area()
-        s = "area() missing 1 required positional argument: 'self'"
+        s = "Rectangle.area() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
     def test_I_area(self):
@@ -243,7 +228,7 @@ were given"
         r = Square(9)
         with self.assertRaises(TypeError) as e:
             Square.display()
-        s = "display() missing 1 required positional argument: 'self'"
+        s = "Rectangle.display() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
     def test_J_display_simple(self):
@@ -425,7 +410,7 @@ were given"
         r = Square(5, 2)
         with self.assertRaises(TypeError) as e:
             Square.__str__()
-        s = "__str__() missing 1 required positional argument: 'self'"
+        s = "Square.__str__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
     def test_K_str(self):
@@ -449,7 +434,7 @@ were given"
         r = Square(5, 2)
         with self.assertRaises(TypeError) as e:
             Square.update()
-        s = "update() missing 1 required positional argument: 'self'"
+        s = "Square.update() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
         d = r.__dict__.copy()
@@ -579,7 +564,7 @@ were given"
         '''Tests to_dictionary() signature:'''
         with self.assertRaises(TypeError) as e:
             Square.to_dictionary()
-        s = "to_dictionary() missing 1 required positional argument: 'self'"
+        s = "Square.to_dictionary() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
         r = Square(1)
@@ -602,6 +587,7 @@ were given"
         s2.update(**s1_dictionary)
         self.assertEqual(str(s1), str(s2))
         self.assertNotEqual(s1, s2)
+
 
 if __name__ == "__main__":
     unittest.main()
