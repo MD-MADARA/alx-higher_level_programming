@@ -3,14 +3,14 @@
 
 
 def find_peak(list_of_integers):
-    """def doc"""
+    """ function doc """
     if list_of_integers:
-        lf = 0
-        r = len(list_of_integers) - 1
-        while lf < r:
-            m = (lf + r) // 2
-            if list_of_integers[m] > list_of_integers[m + 1]:
-                r = m
+        n = len(list_of_integers)
+        left, right = 0, n - 1
+        while left < right:
+            mid = (left + right) // 2
+            if list_of_integers[mid] > list_of_integers[mid + 1]:
+                right = mid
             else:
-                lf = m + 1
-        return list_of_integers[lf]
+                left = mid + 1
+        return list_of_integers[left]

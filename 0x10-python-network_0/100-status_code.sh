@@ -1,3 +1,3 @@
 #!/bin/bash
-# Only status cod3
+# Only status code
 curl -sw '%{http_code}' -o /dev/null "$1"
